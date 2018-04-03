@@ -1,0 +1,60 @@
+﻿@model CurrencyMVC.Models.MovieModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>MovieModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Title)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.YearReleased)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Genre)
+                        </th>
+                        <th></th>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="text" name="TitleBox" value="@Model.Title" />
+                        </td>
+                        <td>
+                            <input type="text" name="YearBox" value="@Model.YearReleased.ToString()" />
+                        </td>
+                        <td>
+                            <input type="text" name="GenreBox" value="@Model.Genre" />
+                        </td>
+                    </tr>
+                </table>
+                    <input type="submit" value="Save" class="btn btn-default" />
+</div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

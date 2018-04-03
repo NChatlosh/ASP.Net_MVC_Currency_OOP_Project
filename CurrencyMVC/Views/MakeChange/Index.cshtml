@@ -1,0 +1,17 @@
+﻿@model CurrencyMVC.Models.AmountHolder
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Make Change</h2>
+
+<h3>Total: </h3>
+
+@using (Html.BeginForm("MakeChange", "MakeChange", FormMethod.Post))
+{
+        @Html.TextBoxFor(model => model.Amount)
+            <input type="submit" value="MakeChange"/>
+}
+
+
